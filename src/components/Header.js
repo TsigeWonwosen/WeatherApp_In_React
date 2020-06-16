@@ -5,26 +5,29 @@ import HeaderBackground from "../img/beach_header.png";
 function Header() {
   return (
     <header style={headerStyle}>
-      <h1
-        className=" f1 tc i-m"
-        style={{ color: "white", textAlign: "center" }}
-      >
-        {" "}
-        React Project{" "}
-      </h1>
-
-      <h4
+      <div>
+        <h1
+          className=' f1 tc i-m'
+          style={{ color: "white", textAlign: "center" }}
+        >
+          Weather App
+        </h1>
+      </div>
+      <div
         style={{
           margin: "3px",
           padding: "5px",
           textAlign: "center",
           color: "#444",
-          cursor: "pointer"
+          cursor: "pointer",
+          display: "flex",
+          justifyContent: "space-between",
+          width: "30%",
         }}
       >
-        <Link to="/"> Home </Link> |<Link to="/title"> Titles </Link> |
-        <Link to="/weather"> Weather </Link> |<Link to="#"> Contact </Link>
-      </h4>
+        <Link to='/'> Home </Link> |<Link to='/title'> Titles </Link> |
+        <Link to='/weather'> Weather </Link> |<Link to='#'> Contact </Link>
+      </div>
     </header>
   );
 }
@@ -33,9 +36,9 @@ export default Header;
 const headerStyle = {
   height: "20%",
   backgroundImage: `url(${HeaderBackground})`,
+  display: "flex",
+  justifyContent: "space-between",
   color: "#444",
-  border: "nono",
+  border: "none",
   padding: "5px 9px",
-  borderRadius: "2%",
-  float: "center"
 };
