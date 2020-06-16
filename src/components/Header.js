@@ -5,13 +5,11 @@ import HeaderBackground from "../img/beach_header.png";
 function Header() {
   return (
     <header style={headerStyle}>
-      <div>
-        <h1
-          className=' f1 tc i-m'
-          style={{ color: "white", textAlign: "center" }}
-        >
-          Weather App
-        </h1>
+      <div
+        className=' f1 tc i-m'
+        style={{ color: "white", textAlign: "center", fontSize: "1.2rem" }}
+      >
+        Weather App
       </div>
       <div
         style={{
@@ -34,10 +32,11 @@ function Header() {
 export default Header;
 
 const headerStyle = {
-  height: "20%",
-  backgroundImage: `url(${HeaderBackground})`,
+  height: "35px",
+  backgroundColor: "linear-gradient(to right, #e67e22, #e74c3c)",
   display: "flex",
   justifyContent: "space-between",
+  textAlign: "center",
   color: "#444",
   border: "none",
   padding: "5px 9px",
