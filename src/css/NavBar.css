@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Metal+Mania&family=Odibee+Sans&display=swap");
+.navBar {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  width: 95%;
+  height: 35px;
+}
+.navBar li {
+  height: 100%;
+  width: 20%;
+  list-style: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.navBar li span {
+  padding: 5px;
+  font-size: 1.2rem;
+  color: rgba(243, 240, 240, 0.938) !important;
+  font-family: "Odibee Sans", cursive;
+}
+.navBar span:hover {
+  font-size: 1.4rem;
+}
+
+.logo span {
+  color: white;
+  text-align: center;
+  font-size: 1.4rem;
+  font-family: "Odibee Sans", cursive;
+  letter-spacing: 0.1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.logo:hover {
+  transform: scale(1.1);
+}

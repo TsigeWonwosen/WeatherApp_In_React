@@ -1,29 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "../css/NavBar.css";
 function Header() {
   return (
     <header style={headerStyle}>
-      <div
-        className=' f1 tc i-m'
-        style={{ color: "white", textAlign: "center", fontSize: "1.2rem" }}
-      >
-        Weather App
+      <div className=' logo f1 tc i-m'>
+        <Link to='/'>
+          <span>Weather App</span>
+        </Link>
       </div>
-      <div
-        style={{
-          margin: "3px",
-          padding: "5px",
-          textAlign: "center",
-          color: "#444",
-          cursor: "pointer",
-          display: "flex",
-          justifyContent: "space-between",
-          width: "30%",
-        }}
-      >
-        <Link to='/'> Home </Link> |<Link to='/title'> Titles </Link> |
-        <Link to='/weather'> Weather </Link> |<Link to='#'> Contact </Link>
+      <div style={{ width: "50%" }}>
+        <ul className='navBar'>
+          <li>
+            <Link to='/'>
+              {" "}
+              <span>Home</span>
+            </Link>
+          </li>
+          <li>
+            <Link to='/title'>
+              <span>Title</span>
+            </Link>
+          </li>
+          <li>
+            <Link to='/weather'>
+              {" "}
+              <span>Weather</span>
+            </Link>
+          </li>
+          <li>
+            <Link to='#'>
+              {" "}
+              <span>Contact</span>
+            </Link>
+          </li>
+        </ul>
       </div>
     </header>
   );
@@ -32,11 +43,12 @@ export default Header;
 
 const headerStyle = {
   height: "35px",
-  backgroundColor: "linear-gradient(to right, #e67e22, #e74c3c)",
+  background: "linear-gradient(to right, #e67e22, #e74c3c)",
   display: "flex",
   justifyContent: "space-between",
   textAlign: "center",
-  color: "#444",
+  color: "#4f4f4",
   border: "none",
-  padding: "5px 9px",
+  padding: " 1% 10% 3%",
+  borderBottom: "1px solid rgb(250, 142, 142)",
 };
