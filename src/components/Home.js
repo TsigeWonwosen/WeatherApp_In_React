@@ -8,16 +8,14 @@ const API_KEY = "20572be333bd976b400c876f1946359e";
 
 class Home extends React.Component {
   state = {
-    city: "",
-    country: "",
-    temprature: "",
+    city: "turin",
+    country: "it",
+    temperature: "",
     humidity: "",
     icon: "",
+    description: "",
   };
   getWeather = async (city, country) => {
-    // const city = e.target.elements.city.value;
-
-    // const country = e.target.elements.country.value;
     const api_call = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}`
     );
@@ -27,15 +25,23 @@ class Home extends React.Component {
       this.setState({
         city: data.name,
         country: data.sys.country,
-        temprature: data.main.temp,
+        temperature: data.main.temp,
         humidity: data.main.humidity,
         icon: data.weather[0].icon,
+        description: data.weather[0].description,
       });
     }
   };
 
   render() {
-    const { city, country, temprature, humidity, icon } = this.state;
+    const {
+      city,
+      country,
+      temperature,
+      humidity,
+      icon,
+      description,
+    } = this.state;
     return (
       <div className='wrapper'>
         <div className='main'>
@@ -43,14 +49,17 @@ class Home extends React.Component {
             <Titles />
           </div>
 
-          <div className='form-container'>
+          <div
+            className={humidity > 60 ? "form-container" : "form-container cold"}
+          >
             <Form getWeather={this.getWeather} />
             <Weather
               city={city}
               country={country}
-              temprature={temprature}
+              temperature={temperature}
               humidity={humidity}
               icon={icon}
+              description={description}
             />
           </div>
         </div>

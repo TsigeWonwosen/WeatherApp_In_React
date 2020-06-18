@@ -1,42 +1,64 @@
 import React from "react";
 import "../App.css";
 
-function Weather(props) {
+function Weather({ country, city, temperature, humidity, icon, description }) {
+  const dateBuilder = (d) => {
+    let months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+
+    let day = days[d.getDay()];
+    let date = d.getDate();
+    let month = months[d.getMonth()];
+    let year = d.getFullYear();
+
+    return `${day} ${date} ${month} ${year}`;
+  };
   return (
-    <div className="App">
-      {
-        // <p>Country: {props.country}</p>
-        // <p>City: {props.city}</p>
-        // <p>Tempraure:{props.temprature}</p>
-        // <p>Humidity: {props.humidity}</p>
-      }
-      <div>
-        <table className="table table-sm">
-          <thead className="thead-dark">
-            <tr>
-              <th scope="col">Country</th>
-              <th scope="col">City</th>
-              <th scope="col">Tempraure</th>
-              <th scope="col">Humidity</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{props.country}</td>
-              <td>{props.city}</td>
-              <td>{props.temprature}</td>
-              <td>{props.humidity}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p>
-        Icon :{"   "}
-        <i className="fas fa-cloud-meatball" style={{ fontSize: "24px" }}>
-          {props.icon}
-        </i>
-      </p>
-    </div>
+    <>
+      {description ? (
+        <div className='table-wrapper'>
+          <div className='location-box'>
+            <div className='location'>
+              {city}, {country}
+            </div>
+            <div className='date'>{dateBuilder(new Date())}</div>
+          </div>
+
+          <div className='weather-box'>
+            <div className='temp'>{Math.round(temperature)}°c</div>
+            <div className='weather'>
+              {description}
+              <div className='date'> Humidity:{humidity}%</div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className='weather-hide'>
+          <div className='date'>{dateBuilder(new Date())}</div>
+        </div>
+      )}
+    </>
   );
 }
 
